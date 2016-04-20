@@ -2,4 +2,4 @@
 
 ## Projects
 
-- fia - Financial Investment Analysis
+- [fia](https://github.com/bear256/CyberMind16/tree/master/fia) - Financial Investment Analysis
