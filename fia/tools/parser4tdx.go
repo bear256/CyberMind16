@@ -10,14 +10,14 @@ import (
 
 // ROW struct
 type ROW struct {
-	YMD    int32
-	Open   int32
-	High   int32
-	Low    int32
-	Close  int32
-	Turnover float32
-	Volumn int32
-	B      int32
+	YMD     int32
+	Open    int32
+	High    int32
+	Low     int32
+	Close   int32
+	Amount  float32
+	Volumn  int32
+	Unknown int32
 }
 
 func main() {
@@ -32,7 +32,7 @@ func main() {
 	// 	fmt.Println("binary.Read failed:", err)
 	// }
 	// fmt.Printf("%d\n", ymd)
-    // a := make(map[uint32]uint32)
+	// a := make(map[uint32]uint32)
 	rn := len(bts) / 32
 	// for i := 0; i < rn; i++ {
 	// 	buf := bytes.NewReader(bts[32*i : 32*(i+1)])
@@ -41,14 +41,14 @@ func main() {
 	// 	if err != nil {
 	// 		log.Fatalln(err)
 	// 	}
-	// 	fmt.Println(row.YMD, row.Open, row.High, row.Low, row.Close, row.Turnover, row.Volumn, row.B)
-    //     a[row.B]++
+	// 	fmt.Println(row.YMD, row.Open, row.High, row.Low, row.Close, row.Amount, row.Volumn, row.Unknown)
+	//     a[row.B]++
 	// }
-    // for k, v := range a {
-    //     fmt.Println(k,v )
-    // }
-    rows := make([]ROW, rn)
-    buf := bytes.NewReader(bts)
-    err = binary.Read(buf, binary.LittleEndian, rows)
-    fmt.Println(rows)
+	// for k, v := range a {
+	//     fmt.Println(k,v )
+	// }
+	rows := make([]ROW, rn)
+	buf := bytes.NewReader(bts)
+	err = binary.Read(buf, binary.LittleEndian, rows)
+	fmt.Println(rows)
 }
